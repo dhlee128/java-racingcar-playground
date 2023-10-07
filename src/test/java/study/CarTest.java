@@ -63,10 +63,10 @@ public class CarTest {
         assertThat("rice").isEqualTo(names3[0]);
         assertThat("pasta").isEqualTo(names3[1]);
 
-        String[] names4 = validator.validCarNameSplit("rice , pasta, like ");
-        assertThat("rice ").isEqualTo(names4[0]);
-        assertThat("pasta ").isEqualTo(names4[1]);
-        assertThat("like ").isEqualTo(names4[1]);
+        String[] names4 = validator.validCarNameSplit(" rice , pasta , like ");
+        assertThat(" rice ").isEqualTo(names4[0]);
+        assertThat(" pasta ").isEqualTo(names4[1]);
+        assertThat(" like ").isEqualTo(names4[2]);
 
     }
 }

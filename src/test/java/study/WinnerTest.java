@@ -1,12 +1,12 @@
 package study;
 
+import domain.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.Game;
+import racingcar.Winner;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -16,16 +16,16 @@ public class WinnerTest {
     @DisplayName("우승자 확인")
     void carMovingTest() {
 
-        Game game = new Game();
+        Winner winner = new Winner();
 
-        Map<String, Integer> cars = new HashMap<>();
+        List<Car> cars = new ArrayList<>();
 
-        cars.put("rice",4);
-        cars.put("cake",10);
-        cars.put("pizza",10);
-        cars.put("pasta",2);
+        cars.add(Car.nameDistanceCar("rice",4));
+        cars.add(Car.nameDistanceCar("cake",10));
+        cars.add(Car.nameDistanceCar("pizza",10));
+        cars.add(Car.nameDistanceCar("pasta",2));
 
-        List<String> winners = game.judgeWinner(cars);
+        List<String> winners = winner.judgeWinner(cars);
         assertThat(2).isEqualTo(winners.size());
     }
 }
