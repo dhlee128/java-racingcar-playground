@@ -1,7 +1,7 @@
 package view;
 
 import domain.Car;
-import valid.Validator;
+import utils.Validator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,11 +40,12 @@ public class InputView {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String line = br.readLine();
 
-            String[] names = validator.validCarNameSplit(line);
+            validator.validCarNameSplit(line);
+
+            String[] names = line.split(",");
 
             for(int i=0; i< names.length; i++) {
 
-                validator.validCarName(names[i]);
                 cars.add(Car.nameDistanceCar(names[i], 0));
             }
 

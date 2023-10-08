@@ -1,5 +1,8 @@
 package domain;
 
+import utils.Constants;
+import utils.Validator;
+
 import java.util.Random;
 
 public class Car {
@@ -7,7 +10,12 @@ public class Car {
     private String name;
     private int distance;
 
+    Validator validator = new Validator();
+
     private Car(String name, int distance) {
+
+        validator.validCarName(name);
+
         this.name = name;
         this.distance = distance;
     }
@@ -27,7 +35,7 @@ public class Car {
         Random random = new Random();
         int num= random.nextInt(9)+1;
 
-        if(num>=4) this.distance++;
+        if(num>= Constants.MOVING_NUM_STANDARD) this.distance++;
 
     }
 

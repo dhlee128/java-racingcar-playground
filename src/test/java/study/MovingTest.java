@@ -2,7 +2,8 @@ package study;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import valid.Validator;
+import utils.Constants;
+import utils.Validator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +20,7 @@ public class MovingTest {
         Throwable exception = assertThrows(RuntimeException.class, () -> {
             validator.validCarMoving(10);
         });
-        assertEquals("0-9 사이의 숫자이다.", exception.getMessage());
+        assertEquals(Constants.VALID_CAR_MOVING_RANDOM_MESSAGE, exception.getMessage());
 
         assertThat(false).isEqualTo(validator.validCarMoving(0));
 
